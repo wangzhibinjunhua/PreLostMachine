@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#424451"
+    >
+    
+    <include
+        layout="@layout/title_layout"
+        />
+    
+    <RelativeLayout
+        android:id="@+id/goods_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="名称"
+            android:textColor="@color/white"
+            android:textSize="18.0sp"
+            android:layout_marginLeft="10.0dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <TextView
+            android:id="@+id/goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="钥匙"
+            android:textColor="#ADAFAC"
+            android:textSize="18.0sp"
+            android:drawableRight="@drawable/arrow_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="5.0dip"
+            />
+        
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:background="#595B68"
+        />
+    
+    <RelativeLayout
+        android:id="@+id/bell_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报警铃声"
+            android:textColor="@color/white"
+            android:textSize="18.0sp"
+            android:layout_marginLeft="10.0dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <TextView
+            android:id="@+id/bell_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="快乐时光"
+            android:textColor="#ADAFAC"
+            android:textSize="18.0sp"
+            android:drawableRight="@drawable/arrow_icon"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="5.0dip"
+            />
+        
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:background="#595B68"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报警声"
+            android:textColor="@color/white"
+            android:textSize="18.0sp"
+            android:layout_marginLeft="10.0dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <ToggleButton
+            android:id="@+id/call_bell_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/toggle_btn_selector"
+            android:layout_alignParentRight="true"
+            android:textOn=""
+            android:textOff=""
+            android:layout_centerVertical="true"
+            android:checked="true"
+            />
+        
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:background="#595B68"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="弹出通知"
+            android:textColor="@color/white"
+            android:textSize="18.0sp"
+            android:layout_marginLeft="10.0dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <ToggleButton
+            android:id="@+id/popup_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/toggle_btn_selector"
+            android:layout_alignParentRight="true"
+            android:textOn=""
+            android:textOff=""
+            android:layout_centerVertical="true"
+            android:checked="true"
+            />
+        
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:background="#595B68"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10.0dip"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="防丢器"
+            android:textColor="@color/white"
+            android:textSize="18.0sp"
+            android:layout_marginLeft="10.0dip"
+            android:layout_centerVertical="true"
+            />
+        
+        <ToggleButton
+            android:id="@+id/prelost_machine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:button="@drawable/toggle_btn_selector"
+            android:layout_alignParentRight="true"
+            android:textOn=""
+            android:textOff=""
+            android:layout_centerVertical="true"
+            android:checked="true"
+            />
+        
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:background="#595B68"
+        />
+    
+    
+    <Button
+        android:id="@+id/ignore_prelost_machine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:layout_margin="30.0dip"
+        android:text="忽略此防丢器"
+        android:textColor="@color/white"
+        android:textSize="18.0sp"
+        android:padding="15.0dip"
+        
+        />
+
+</LinearLayout>
