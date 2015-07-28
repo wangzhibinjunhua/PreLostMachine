@@ -13,7 +13,7 @@
         android:paddingRight="20.0dip"
         android:paddingTop="10.0dip"
         android:paddingBottom="10.0dip"
-        android:src="@drawable/object_icon" />
+        android:src="@drawable/bluetooth_icon" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:id="@+id/home_page_item_isbind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10.0dip"
+            android:layout_marginTop="5.0dip"
             android:text="未绑定"
             android:textColor="#ADAFAC"
             android:textSize="16.0sp" />

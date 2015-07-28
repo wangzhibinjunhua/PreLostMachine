@@ -5,6 +5,7 @@ import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -17,10 +18,12 @@ public class HomeListAdapter extends BaseAdapter{
 
 	private Context mContext;
 	private List<DeviceBean> deveiceData;
+	private HomeListAdapter instance;
 	
 	public HomeListAdapter(Context context,List<DeviceBean> list){
 		mContext = context;
 		deveiceData = list;
+		instance = this;
 	}
 	
 	@Override
@@ -43,20 +46,36 @@ public class HomeListAdapter extends BaseAdapter{
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		convertView = LayoutInflater.from(mContext).inflate(R.layout.home_page_list_item, null);
-		ImageView image = (ImageView)convertView.findViewById(R.id.home_page_item_image);
+		
 		TextView name = (TextView)convertView.findViewById(R.id.home_page_item_myobject);
 		TextView isbind = (TextView)convertView.findViewById(R.id.home_page_item_isbind);
+		final ImageView face =  (ImageView)convertView.findViewById(R.id.home_page_item_face);
+		final ImageView delect =  (ImageView)convertView.findViewById(R.id.home_page_item_delete);
 		
-		image.setImageResource(deveiceData.get(position).getResource());
-		name.setText(deveiceData.get(position).getName());
-		boolean isBind = deveiceData.get(position).isIsbind();
-		if(isBind){
-			isbind.setText("ÒÑ°ó¶¨");
-		}else{
-			isbind.setText("Î´°ó¶¨");
-		}
+		
+		name.setText(deveiceData.get(position).getDevice().getName());
+		isbind.setText(deveiceData.get(position).getDevice().getAddress());
+		
+		face.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				face.setImageResource(R.drawable.face_icon_2);
+				delect.setVisibility(View.VISIBLE);
+			}
+		});
+		
+		delect.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				deveiceData.remove(position);
+				instance.notifyDataSetChanged();
+			}
+		});
+		
 		return convertView;
 	}
 

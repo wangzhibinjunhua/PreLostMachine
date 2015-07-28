@@ -5,6 +5,10 @@ import java.util.List;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
@@ -23,16 +27,18 @@ import com.prelostmachine.BaseActivity;
 import com.prelostmachine.R;
 import com.prelostmachine.adapter.HomeListAdapter;
 import com.prelostmachine.utils.pojo.DeviceBean;
+import com.prelostmachine.widget.SycleSearchView;
 
 public class HomeActivity extends BaseActivity {
 
 	private static final int REQUEST_ENABLE_BT = 2;
-	private static final long SCAN_PERIOD = 15 * 1000;// 扫描时间
+	private static final long SCAN_PERIOD = 30 * 1000;// 扫描时间
 
 	private ImageView backView;
 	private TextView titleView;
 	private TextView rightView;
 	private ImageView searchRadio;// 搜索按钮
+//	private SycleSearchView searchBtn;
 	private TextView tipText;// 提示文字
 	private ListView deviceList;// 搜索到的设备
 
@@ -79,7 +85,17 @@ public class HomeActivity extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
+				deviceData.clear();
 				scanLeDevice(true);
+			}
+		});
+		
+		rightView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this,SettingActivity.class);
+				startActivity(intent);
 			}
 		});
 
@@ -106,9 +122,12 @@ public class HomeActivity extends BaseActivity {
 		}
 
 		setListener();
-
 	}
 
+	/**
+	 * 搜索设备
+	 * @param enable
+	 */
 	private void scanLeDevice(final boolean enable) {
 		if (enable) {
 			mHandler.postDelayed(new Runnable() {
@@ -136,12 +155,11 @@ public class HomeActivity extends BaseActivity {
 		@Override
 		public void onLeScan(final BluetoothDevice device, int rssi,
 				byte[] scanRecord) {
-
+			deviceData.add(new DeviceBean(device,rssi,scanRecord));
 			runOnUiThread(new Runnable() {
-
 				@Override
 				public void run() {
-					deviceData.add(new DeviceBean(R.drawable.bluetooth_icon,device.getName(), false));
+					//单启线程刷新列表
 					if(null!=deviceData&&deviceData.size()>0){
 						deviceList.setVisibility(View.VISIBLE);
 						tipText.setVisibility(View.GONE);
@@ -151,10 +169,78 @@ public class HomeActivity extends BaseActivity {
 					}
 					mAdapter.notifyDataSetChanged();
 				}
-
 			});
+			
+			connected(device);
+			
 		}
 
+	};
+	
+	private void connected(BluetoothDevice device){
+		BluetoothGatt gatt = device.connectGatt(this,false,gattCallback);
+		boolean isConnected = gatt.connect();
+		if(isConnected){
+			System.out.println("连接成功============================================");
+		}else{
+			System.out.println("连接失败============================================");
+		}
+	}
+	
+	
+	private BluetoothGattCallback gattCallback = new BluetoothGattCallback(){
+		
+		@Override
+		public void onCharacteristicChanged(BluetoothGatt gatt,
+				BluetoothGattCharacteristic characteristic) {
+			super.onCharacteristicChanged(gatt, characteristic);
+		}
+		
+		@Override
+		public void onCharacteristicRead(BluetoothGatt gatt,
+				BluetoothGattCharacteristic characteristic, int status) {
+			super.onCharacteristicRead(gatt, characteristic, status);
+		}
+		
+		@Override
+		public void onCharacteristicWrite(BluetoothGatt gatt,
+				BluetoothGattCharacteristic characteristic, int status) {
+			super.onCharacteristicWrite(gatt, characteristic, status);
+		}
+		
+		@Override
+		public void onConnectionStateChange(BluetoothGatt gatt, int status,
+				int newState) {
+			super.onConnectionStateChange(gatt, status, newState);
+		}
+		
+		@Override
+		public void onDescriptorRead(BluetoothGatt gatt,
+				BluetoothGattDescriptor descriptor, int status) {
+			super.onDescriptorRead(gatt, descriptor, status);
+		}
+		
+		@Override
+		public void onDescriptorWrite(BluetoothGatt gatt,
+				BluetoothGattDescriptor descriptor, int status) {
+			super.onDescriptorWrite(gatt, descriptor, status);
+		}
+		
+		@Override
+		public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
+			super.onReadRemoteRssi(gatt, rssi, status);
+		}
+		
+		@Override
+		public void onReliableWriteCompleted(BluetoothGatt gatt, int status) {
+			super.onReliableWriteCompleted(gatt, status);
+		}
+		
+		@Override
+		public void onServicesDiscovered(BluetoothGatt gatt, int status) {
+			super.onServicesDiscovered(gatt, status);
+		}
+		
 	};
 
 }

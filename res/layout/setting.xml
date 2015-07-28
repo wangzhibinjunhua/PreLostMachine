@@ -2,213 +2,242 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#424451"
-    >
-    
-    <include
-        layout="@layout/title_layout"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_layout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginTop="10.0dip"
+        android:text="报警距离设置"
+        android:textColor="@color/white"
+        android:textSize="18.0sp" />
+
+    <SeekBar
+        android:id="@+id/setting_seekbar"
+        style="@style/seekBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip" 
+        android:secondaryProgress="0"
         />
-    
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20.0dip"
+            android:text="近"
+            android:textColor="@color/white"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20.0dip"
+            android:text="远"
+            android:textColor="@color/white"
+            android:textSize="18.0sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.6dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <RelativeLayout
         android:id="@+id/goods_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10.0dip"
-        >
-        
+        android:padding="10.0dip" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
             android:text="名称"
             android:textColor="@color/white"
-            android:textSize="18.0sp"
-            android:layout_marginLeft="10.0dip"
-            android:layout_centerVertical="true"
-            />
-        
+            android:textSize="18.0sp" />
+
         <TextView
             android:id="@+id/goods_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="钥匙"
-            android:textColor="#ADAFAC"
-            android:textSize="18.0sp"
-            android:drawableRight="@drawable/arrow_icon"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:drawablePadding="5.0dip"
-            />
-        
+            android:drawableRight="@drawable/arrow_icon"
+            android:text="钥匙"
+            android:textColor="#ADAFAC"
+            android:textSize="18.0sp" />
     </RelativeLayout>
-    
-    <View 
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.6dip"
-        android:background="#595B68"
-        />
-    
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <RelativeLayout
         android:id="@+id/bell_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10.0dip"
-        >
-        
+        android:padding="10.0dip" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
             android:text="报警铃声"
             android:textColor="@color/white"
-            android:textSize="18.0sp"
-            android:layout_marginLeft="10.0dip"
-            android:layout_centerVertical="true"
-            />
-        
+            android:textSize="18.0sp" />
+
         <TextView
             android:id="@+id/bell_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="快乐时光"
-            android:textColor="#ADAFAC"
-            android:textSize="18.0sp"
-            android:drawableRight="@drawable/arrow_icon"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:drawablePadding="5.0dip"
-            />
-        
+            android:drawableRight="@drawable/arrow_icon"
+            android:text="快乐时光"
+            android:textColor="#ADAFAC"
+            android:textSize="18.0sp" />
     </RelativeLayout>
-    
-    <View 
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.6dip"
-        android:background="#595B68"
-        />
-    
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10.0dip"
-        >
-        
+        android:padding="10.0dip" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
             android:text="报警声"
             android:textColor="@color/white"
-            android:textSize="18.0sp"
-            android:layout_marginLeft="10.0dip"
-            android:layout_centerVertical="true"
-            />
-        
+            android:textSize="18.0sp" />
+
         <ToggleButton
             android:id="@+id/call_bell_toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:button="@drawable/toggle_btn_selector"
-            android:layout_alignParentRight="true"
-            android:textOn=""
-            android:textOff=""
-            android:layout_centerVertical="true"
             android:checked="true"
-            />
-        
+            android:textOff=""
+            android:textOn="" />
     </RelativeLayout>
-    
-    <View 
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.6dip"
-        android:background="#595B68"
-        />
-    
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10.0dip"
-        >
-        
+        android:padding="10.0dip" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
             android:text="弹出通知"
             android:textColor="@color/white"
-            android:textSize="18.0sp"
-            android:layout_marginLeft="10.0dip"
-            android:layout_centerVertical="true"
-            />
-        
+            android:textSize="18.0sp" />
+
         <ToggleButton
             android:id="@+id/popup_notice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:button="@drawable/toggle_btn_selector"
-            android:layout_alignParentRight="true"
-            android:textOn=""
-            android:textOff=""
-            android:layout_centerVertical="true"
             android:checked="true"
-            />
-        
+            android:textOff=""
+            android:textOn="" />
     </RelativeLayout>
-    
-    <View 
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.6dip"
-        android:background="#595B68"
-        />
-    
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10.0dip"
-        >
-        
+        android:padding="10.0dip" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
             android:text="防丢器"
             android:textColor="@color/white"
-            android:textSize="18.0sp"
-            android:layout_marginLeft="10.0dip"
-            android:layout_centerVertical="true"
-            />
-        
+            android:textSize="18.0sp" />
+
         <ToggleButton
             android:id="@+id/prelost_machine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:background="@android:color/transparent"
             android:button="@drawable/toggle_btn_selector"
-            android:layout_alignParentRight="true"
-            android:textOn=""
-            android:textOff=""
-            android:layout_centerVertical="true"
             android:checked="true"
-            />
-        
+            android:textOff=""
+            android:textOn="" />
     </RelativeLayout>
-    
-    <View 
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="0.6dip"
-        android:background="#595B68"
-        />
-    
-    
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:background="#595B68" />
+
     <Button
         android:id="@+id/ignore_prelost_machine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue"
         android:layout_margin="30.0dip"
+        android:background="@color/blue"
+        android:padding="15.0dip"
         android:text="忽略此防丢器"
         android:textColor="@color/white"
-        android:textSize="18.0sp"
-        android:padding="15.0dip"
-        
-        />
+        android:textSize="18.0sp" />
 
 </LinearLayout>

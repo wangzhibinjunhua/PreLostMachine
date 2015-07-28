@@ -1,39 +1,41 @@
 package com.prelostmachine.utils.pojo;
 
+import android.bluetooth.BluetoothDevice;
+
 public class DeviceBean {
 
-	int resource;//图片资源
-	String name;//设备名
-	boolean isbind;//是否绑定
+	BluetoothDevice device;
+	int rssi;
+	byte[] scanrecord;
 
-	public DeviceBean(int resource,String name,boolean isbind){
-		this.resource = resource;
-		this.name = name;
-		this.isbind = isbind;
-	}
-	
-	public int getResource() {
-		return resource;
+	public DeviceBean(BluetoothDevice device, int rssi, byte[] scanrecord) {
+		this.device = device;
+		this.rssi = rssi;
+		this.scanrecord = scanrecord;
 	}
 
-	public void setResource(int resource) {
-		this.resource = resource;
+	public BluetoothDevice getDevice() {
+		return device;
 	}
 
-	public String getName() {
-		return name;
+	public void setDevice(BluetoothDevice device) {
+		this.device = device;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getRssi() {
+		return rssi;
 	}
 
-	public boolean isIsbind() {
-		return isbind;
+	public void setRssi(int rssi) {
+		this.rssi = rssi;
 	}
 
-	public void setIsbind(boolean isbind) {
-		this.isbind = isbind;
+	public byte[] getScanrecord() {
+		return scanrecord;
+	}
+
+	public void setScanrecord(byte[] scanrecord) {
+		this.scanrecord = scanrecord;
 	}
 
 }
